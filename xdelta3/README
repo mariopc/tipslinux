@@ -1,0 +1,53 @@
+En este archivo se describe como instalar el progama xdelta3 (https://github.com/jmacd/xdelta)
+en RHEL 5 y 6
+
+Descargar el software: git clone https://github.com/jmacd/xdelta
+mover el archivo xz-5.2.1.tar.gz al directorio xdelta/
+Opcional: Instalar xz si no lo está
+Instalar autoconf-2.69 y automake-1.15 (se incluyen)
+Instalar GCC 4.8:
+
+	Install GCC 4.8 ON CENTOS 5
+
+	rpm --import http://ftp.scientificlinux.org/linux/scientific/5x/x86_64/RPM-GPG-KEYs/RPM-GPG-KEY-cern
+	wget -O /etc/yum.repos.d/slc5-devtoolset.repo http://linuxsoft.cern.ch/cern/devtoolset/slc5-devtoolset.repo
+	
+	rpm -Uvh libgomp-4.4.7-1.el5.i386.rpm
+	
+	yum install devtoolset-2-gcc-c++
+	yum install ddevtoolset-2-binutils.i386 devtoolset-2-binutils-devel.i386
+	
+	echo "source /opt/rh/devtoolset-2/enable" >> ~/.bashrc
+
+	Install GCC 4.8 ON CENTOS 6
+
+	rpm --import http://ftp.scientificlinux.org/linux/scientific/5x/x86_64/RPM-GPG-KEYs/RPM-GPG-KEY-cern
+	wget -O /etc/yum.repos.d/slc6-devtoolset.repo http://linuxsoft.cern.ch/cern/devtoolset/slc6-devtoolset.repo
+	
+	yum install devtoolset-2-gcc-c++
+	yum install devtoolset-2-binutils.x86_64 devtoolset-2-binutils-devel.x86_64
+	
+	echo "source /opt/rh/devtoolset-2/enable" >> ~/.bashrc
+
+ingresar al directorio xdelta/xdelta3/ y ejecuar:
+
+libtoolize || glibtoolize
+automake-1.15 --add-missing
+aclocal -I m4
+autoheader
+automake-1.15
+autoconf
+
+**Puede que autoconf tenga problemas, por lo que quisas sea necesaria ejecutarlo directo del directorio donde esta el binario, ej: /usr/local/bin/autoconf
+
+Luego de lo anterior, se debe ejecutar el programa run_release.sh (cambiando antes, las versiones de automake y autoconf dentro del script)
+
+Finalmente ejecutar:
+
+./configure
+make
+make install
+
+**Si aparece algun error investigar
+
+Luego de esto encontraran en binario xdelta3 listo para su distro.
