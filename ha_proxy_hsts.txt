@@ -1,1 +1,3 @@
+Put this under the backend name:
+
 http-response set-header Strict-Transport-Security "max-age=16000000; includeSubDomains; preload;"
