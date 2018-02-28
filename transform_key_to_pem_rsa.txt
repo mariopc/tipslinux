@@ -1,0 +1,1 @@
+openssl rsa -in server.key -text > private.pem
