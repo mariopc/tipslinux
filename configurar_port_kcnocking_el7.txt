@@ -1,0 +1,34 @@
+En el server instalar el rpm knock-server-0.7-2.el7.nux.x86_64.rpm
+
+Luego en el archivo /etc/knockd.conf, escribir las siguientes opciones (cambiar según necesidad)
+
+[options]
+	LogFile = /var/log/port_knocking.log
+	interface = enp0s3
+
+[openSSH]
+        sequence    = 32512,8425,27705
+        seq_timeout = 5
+        command     = firewall-cmd --add-port=22/tcp
+        tcpflags    = syn
+
+[closeSSH]
+        sequence    = 9136,17752,45700
+        seq_timeout = 5
+        command     = firewall-cmd --remove-port=22/tcp
+        tcpflags    = syn
+
+Despues iniciar el demonio con systemctl start knockd
+
+*Si ya tienes habilitado el ssh en firewalld debes quitarlo (puede estar como servicio o puerto)
+Luego ya puedes realizar el knock con el siguiente script
+
+#!/bin/bash
+HOST=$1
+shift
+for ARG in "$@"
+do
+        nmap -PN --host_timeout 201 --max-retries 0 -p $ARG $HOST
+done
+
+PD: Debes tener instalado nmap
