@@ -26,6 +26,12 @@ Ejecutar el siguiente comando para cada dominio (se debe reemplazar lo que está
 
 >certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d **domain.exmaple.com**
 
+Si se quiere un certificado wildcard se debe ejecutar el siguiente comando:
+
+certbot certonly --server https://acme-v02.api.letsencrypt.org/directory --manual --preferred-challenges dns -d *.example.com
+
+**Se debe renovar cada tres meses manualmente
+
 El comando anterior devolverá como resultado lo siguiente:
 
 >IMPORTANT NOTES:
