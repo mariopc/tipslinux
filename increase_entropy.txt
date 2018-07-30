@@ -1,0 +1,6 @@
+Aumentar entropia para maquinas virtuales
+
+cat /proc/sys/kernel/random/entropy_avail
+yum install haveged
+systemctl start haveged
+cat /proc/sys/kernel/random/entropy_avail

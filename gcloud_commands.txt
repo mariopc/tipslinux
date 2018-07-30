@@ -1,0 +1,26 @@
+
+ENTER TO THE CONTAINER (LIKE SSH):
+
+kubectl exec -it tiaxa-omnia-chrome-pvc-2bkn9 -- /bin/bash
+
+COPY FILES TO CONTAINER (LIKE SCP):
+
+kubectl cp test.txt tiaxa-omnia-chrome-pvc-2bkn9:/tmp/
+
+LIST DEPLOYMENTS:
+
+kubectl get deployments
+
+kubectl get services
+
+kubectl get all
+
+kubectl get storageclasses
+
+kubectl describe storageclasses/sclass-omnia-chrome-hdd
+
+gcloud compute disks list
+
+kubectl create -f omnia_chrome_statefulset_all.yml --dry-run
+
+kubectl create -f omnia_chrome_statefulset_all.yml
