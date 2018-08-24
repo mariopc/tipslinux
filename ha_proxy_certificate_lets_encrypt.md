@@ -38,7 +38,7 @@ El comando anterior devolverá como resultado lo siguiente:
 >-Congratulations! Your certificate and chain have been saved at:
 >/etc/letsencrypt/live/domain.example.com/fullchain.pem
 >Your key file has been saved at:
->**/etc/letsencrypt/live/domain.example.com/**privkey.pem
+>**/etc/letsencrypt/live/domain.example.com/privkey.pem**
 >Your cert will expire on **2017-12-26**. To obtain a new or tweaked
 >version of this certificate in the future, simply run certbot
 >again. To non-interactively renew *all* of your certificates, run
