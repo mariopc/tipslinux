@@ -1,0 +1,7 @@
+Encrypt  with  a  symmetric  cipher  using  a  passphrase
+
+gpg -c FileName
+
+Decrypt  the  file  given  on the command line
+
+gpg -d FileName
