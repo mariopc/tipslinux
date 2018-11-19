@@ -1,3 +1,14 @@
+INSTALL
+
+install google-gcloud-sdk (https://cloud.google.com/sdk/docs/quickstart-linux#before-you-begin)
+
+exec: gcloud init
+
+install kubectl: gcloud components install kubectl
+
+list current clusters: gcloud container clusters list
+
+get kubernetes engine cluster credentials: gcloud container clusters get-credentials [CLUSTER_NAME] (this command configures kuectl to interact with the cluster)
 
 ENTER TO THE CONTAINER (LIKE SSH):
 
