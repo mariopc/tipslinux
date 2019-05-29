@@ -1,0 +1,6 @@
+plugins: [
+    "hyper-highlight-active-pane",
+    "hyper-broadcast",
+    "hyper-fading-scrollbar",
+    "git-falcon9"
+  ],
